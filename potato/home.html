@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>login Tiktok</title>
+</head>
+<body>
+    <form method="post" id="login-form">
+        <!-- Since there is no client key or secret key now, I want it to be manually input, it can be hardcoded in backend -->
+        <!-- <label>    
+            client_key
+            <input name="client-key">
+        </label>
+
+        <label>
+            client_secret
+            <input name="client-secret">
+        </label> -->
+
+        <label>
+            Code
+            <input name="code">
+        </label>
+
+        <label>
+            State
+            <input name="state">
+        </label>
+        
+        <input type="submit" value="login">
+    </form>
+
+    <div id="message"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        let login_form = $("#login-form")
+        function submitLogin(formEvent){
+            formEvent.preventDefault()
+            console.log( "http://localhost:3000/redirect?"+login_form.serialize())
+            $.ajax(
+                "http://localhost:3000/redirect?"+login_form.serialize(), {
+                    method: "POST",
+                    // Serialize the login form to the data sent by POST request
+                    
+                    success: (data)=>{
+                        console.log(data)
+                        console.log("success")
+                        let message = $("#message")
+                        message.empty()
+                        message.append("Success")
+                    }
+                }
+            )
+        }
+        login_form.submit(submitLogin)
+
+    </script>
+
+</body>
+</html>    
