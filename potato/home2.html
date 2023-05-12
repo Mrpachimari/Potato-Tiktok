@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Login</title>
+    <style>
+        #loginSuccess {
+            display: none;
+        }
+        #loginSuccess img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="604169960417-mp568kdm8o9jvu2iq72n5lrbgds6jam2.apps.googleusercontent.com">
+</head>
+<body>
+    <h1>Login with Google</h1>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div id="loginSuccess">
+        <p id="successMessage"></p>
+        <img src="cat.jpg" alt="Cat">
+    </div>
+    <script>
+        function onSignIn(googleUser) {
+            document.getElementById("loginSuccess").style.display = "block";
+            document.getElementById("successMessage").textContent = "Success! You are logged in.";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
